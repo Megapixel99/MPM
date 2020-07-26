@@ -1,0 +1,28 @@
+{
+  "name": "package-manager-package-manager",
+  "version": "1.0.0",
+  "description": "MPM (Package Manager-Package Manager) is a CLI application for managing multiple package managers.",
+  "main": "./src/methods.js",
+  "scripts": {
+    "start": "node ./src/manager.js"
+  },
+  "author": "Seth Wheeler",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "bin": {
+    "mpm": "./src/manager.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Megapixel99/MPM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Megapixel99/MPM/issues"
+  },
+  "homepage": "https://github.com/Megapixel99/MPM#readme"
+}
