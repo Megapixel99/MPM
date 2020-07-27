@@ -99,24 +99,22 @@ async function main() {
         throw (new Error(`Invalid argument: ${args[i]} missing '/'`));
       }
     }
+  } else if (process.argv[2] === 'h' || process.argv[2] === 'help' || process.argv.length === 2) {
+    console.log('Usage: mpm [command] [source(s)] [options]' + '\n\n'
+    + 'Commands:' + '\n'
+    + '  ' + 'i, install: ' + ' ' + 'Installs the items listed in source(s)' + '\n'
+    + '  ' + 'h, help:    ' + ' ' + 'Print available command line commands and options (currently set)' + '\n\n'
+    + 'Source(s) Format:' + '\n'
+    + '  ' + 'One source: command/package:               ' + ' ' + 'Examples: npm/express, rvm/1.9.3' + '\n'
+    + '  ' + 'Multiple sources: command/package,package: ' + ' ' + 'Examples: npm/express,axios and apt/mysql-server,mysql-client' + '\n\n'
+    + 'Available Options:' + '\n'
+    + '  ' + '-s, -silent:      ' + ' ' + 'no logs wil be output, not even error logs' + '\n'
+    + '  ' + '-v, -verbose:     ' + ' ' + 'all logs will be output');
   } else {
     console.log(`Command: ${process.argv[2]} not found, please try again with a different command or execute` + '\n'
     + '$ mpm help' + '\n'
     + 'to see a list of commands');
   }
-}
-
-if (process.argv[2] === 'h' || process.argv[2] === 'help' || process.argv.length === 2) {
-  console.log('Usage: mpm [command] [source(s)] [options]' + '\n\n'
-  + 'Commands:' + '\n'
-  + '  ' + 'i, install: ' + ' ' + 'Installs the items listed in source(s)' + '\n'
-  + '  ' + 'h, help:    ' + ' ' + 'Print available command line commands and options (currently set)' + '\n\n'
-  + 'Source(s) Format:' + '\n'
-  + '  ' + 'One source: command/package:               ' + ' ' + 'Examples: npm/express, rvm/1.9.3' + '\n'
-  + '  ' + 'Multiple sources: command/package,package: ' + ' ' + 'Examples: npm/express,axios and apt/mysql-server,mysql-client' + '\n\n'
-  + 'Available Options:' + '\n'
-  + '  ' + '-s, -silent:      ' + ' ' + 'no logs wil be output, not even error logs' + '\n'
-  + '  ' + '-v, -verbose:     ' + ' ' + 'all logs will be output');
 }
 
 main();
