@@ -4,10 +4,11 @@ MPM is a CLI application (with an API component) written in NodeJS for managing 
 
 ## Installation
 Download `install.py`, then run the following command in the directory where
-`install.py` was downloaded:
+`install.py` was downloaded (you may need to use sudo):
 ```bash
 $ python ./install.py
 ```
+Then add the executable to your path: `export PATH=$PATH:/usr/local/mpm/bin`
 
 ## CLI Usage
 Install and run a script from the internet
@@ -40,6 +41,7 @@ $ mpm install \
 
 ## CLI Options
 -s, -silent: no logs wil be output, not even error logs
+
 -v, -verbose: all logs will be output
 
 ## Contributing

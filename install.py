@@ -22,9 +22,13 @@ def make_executable(path):
 
 homeDir = expanduser("~")
 system = platform.system()
+writeFolder = '/usr/local/mpm/bin'
+writeFile = writeFolder + "/mpm"
 if system == "Windows":
-    print ("Windows is currently not supported, please try again later or install with npm")
+    print ("Windows is currently not supported, please try again later")
     sys.exit()
+if not os.path.exists(writeFolder):
+    os.makedirs(writeFolder)
 try:
     apiInfo = requests.get("https://api.github.com/repos/Megapixel99/MPM/releases/latest").json()
 except requests.exceptions.Timeout:
@@ -35,15 +39,15 @@ except requests.exceptions.RequestException as e:
 print ("Downloading version: " + apiInfo["tag_name"])
 if system == "Darwin":
     r = requests.get("https://github.com/Megapixel99/MPM/releases/download/" + apiInfo["tag_name"] + "/manager-macos")
-    with open('/usr/bin/mpm', 'wb') as f:
+    with open(writeFile, 'w+') as f:
         f.write(r.content)
-    make_executable('/usr/bin/mpm')
+    make_executable(writeFile)
     pass
 else:
     r = requests.get("https://github.com/Megapixel99/MPM/releases/download/" + apiInfo["tag_name"] + "/manager-linux")
-    with open('/usr/bin/mpm', 'wb') as f:
+    with open(writeFile, 'w+') as f:
         f.write(r.content)
-    make_executable('/usr/bin/mpm')
+    make_executable(writeFile)
     pass
 
 print ("Successfully downloaded version: " + apiInfo["tag_name"])
